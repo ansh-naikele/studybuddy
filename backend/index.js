@@ -226,11 +226,4 @@ app.get('/api/bookings', async (req, res) => {
     res.json({ status: 'ok', name: user.name, bookings: user.bookings, link: user.link });
 });
 
-if (process.env.NODE_ENV !== 'production') {
-    const PORT = process.env.PORT || 1337;
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-}
-
 module.exports = app; // Export the server for testing
