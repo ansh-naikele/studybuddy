@@ -5,18 +5,6 @@ const mongoose = require('mongoose');
 const User = require('./models/user');
 const jose = require('jose');
 const bcrypt = require('bcryptjs');
-const http = require('http');
-
-// Create a server instance
-const server = http.createServer(app);
-
-// Set up Socket.io with CORS
-const io = require('socket.io')(server, {
-  cors: {
-    origin: "http://localhost:3000", // Allow requests from this origin
-    methods: ["GET", "POST"]
-  }
-});
 
 // Load environment variables from .env file
 require('dotenv').config();
