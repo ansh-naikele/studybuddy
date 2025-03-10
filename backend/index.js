@@ -8,8 +8,13 @@ const bcrypt = require('bcryptjs');
 
 // Load environment variables from .env file
 require('dotenv').config();
-app.use(cors()); // Enable CORS for all routes
-app.use(express.json()); // Parse incoming JSON requests
+app.use(cors({
+    origin: 'https://studybuddy-khaki.vercel.app',
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
+
+app.use(express.json()); 
 
 // Set mongoose to use strict query
 mongoose.set('strictQuery', true);
