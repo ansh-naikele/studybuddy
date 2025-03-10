@@ -25,7 +25,7 @@ const VideoConferencing = () => {
         navigate("/login"); // Redirect to login if no token
       }
       startVideo(); // Start the video stream when the component loads
-  }, []);
+  }, [navigate]);
 
   // Function to start video and audio streaming
   const startVideo = async () => {

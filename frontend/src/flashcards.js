@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"; // Import React to use JSX and React features
-import { Link, useNavigate } from "react-router-dom"; // Import Link from react-router-dom for navigation
+import { useNavigate } from "react-router-dom"; // Import Link from react-router-dom for navigation
 import "./flashcards.css"; // Import the CSS file to style the navbar
 
 // Define the Navbar component

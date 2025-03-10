@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './login';
-import VideoConferencing from './video';
 import Navbar from './navbar.js';
 import ScheduleTutor from './scheduleTutor.js';
 import ScheduleTutoree from './scheduleTutoree.js';
