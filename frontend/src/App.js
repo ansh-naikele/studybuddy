@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './login';
 import VideoConferencing from './video';
-import Navbar from './navbar'; // Import the Navbar
-import ScheduleTutor from './scheduleTutor';
-import ScheduleTutoree from './scheduleTutoree';
-import Register from './register';
-import Dashboard from './dashboard';
-import Flashcards  from './flashcards';
-import Chatbot from './chatbot';
+import Navbar from './navbar.js';
+import ScheduleTutor from './scheduleTutor.js';
+import ScheduleTutoree from './scheduleTutoree.js';
+import Register from './register.js';
+import Dashboard from './dashboard.js';
+import Flashcards  from './flashcards.js';
+import Chatbot from './chatbot.js';
 // The main App component that handles the routing and overall structure of the application
 
 const ScheduleWrapper = () => {
