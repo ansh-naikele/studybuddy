@@ -75,8 +75,9 @@ const Dashboard = () => {
 
                 {/* List of upcoming sessions */}
                 <div className="sessions-list">
-                    {upcomingSessions.map((session, index) => (
-                        console.log(session),
+                    {upcomingSessions.map((session, index) => {
+                        console.log(session);
+                        return(
                         <div key={index} className="session-card">
                             <h4>Session with {session.name}</h4> {/* Display tutor's name */}
                             <p>{formatDay(session.day)} at {formatTime(session.time)}</p> {/* Display day and time */}
@@ -88,7 +89,8 @@ const Dashboard = () => {
                                 Join Session
                             </button>
                         </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </div>
