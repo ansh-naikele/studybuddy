@@ -287,11 +287,6 @@ app.get('/api/bookings', async (req, res) => {
     res.json({ status: 'ok', name: user.name, bookings: user.bookings, link: user.link });
 });
 
-// Start the server on port 1337
-app.listen(1337, () => {
-    console.log('Server is running on port 1337');
-});
-
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 1337;
     app.listen(PORT, () => {
