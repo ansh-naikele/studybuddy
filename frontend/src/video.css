@@ -1,0 +1,133 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  margin: 0;
+  position: relative;    
+  height: 100vh;
+  padding-top: 20px; /* Adds some space between the navbar and the content */
+}
+
+.video-page {
+  height: 100vh;
+  background-color: #ffffff; /* Ensure this is the desired color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.video-conference-container {
+  width: 100%;
+  max-width: 2000px;
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h2 {
+  font-size: 2rem;
+  color: #00d4ff;
+  margin: 0;
+}
+
+.invite-button {
+  background-color: #00d4ff;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.invite-button:hover {
+  background-color: #00a3cc;
+}
+
+.video-container {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 25px;
+  align-items: stretch;
+}
+
+.main-video, .your-video {
+  position: relative;
+  flex: 1;
+  background-color: #2a2a2a;
+  border: 3px solid #00d4ff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px; /* Increased height for better visual experience */
+}
+
+.video-placeholder {
+  position: absolute;
+  color: #ffffff;
+  font-size: 1.5rem; /* Increased font size for better readability */
+}
+
+.remote-video, .local-video {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.controls button {
+  background-color: #2a2a2a;
+  border: none;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.controls button:hover {
+  background-color: #00d4ff;
+  transform: scale(1.1); /* Adds a slight scale effect on hover for better UI feedback */
+}
+
+.chat-container {
+  position: absolute;
+  right: 20px;
+  top: 100px; 
+  width: 300px; 
+  height: calc(100% - 120px); 
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.local-video, .remote-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block; /* Change from 'none' to 'block' */
+}
+
+.video-placeholder {
+  position: absolute;
+  color: #ffffff;
+  display: none; /* Hide placeholder when video is shown */
+}

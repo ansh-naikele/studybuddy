@@ -1,0 +1,95 @@
+.dashboard-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .welcome-message {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00695c;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .upcoming-sessions-container, .quick-actions-container {
+    margin-bottom: 30px;
+    background-color: #f0f7f7;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .upcoming-header, .quick-actions-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .upcoming-header h3, .quick-actions-header h3 {
+    color: #00796b;
+    margin: 0;
+  }
+  
+  .sessions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .session-card {
+    padding: 15px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #00d4ff, #6f8fe7);
+    color: #ffffff;
+  }
+  
+  .session-card h4 {
+    margin: 0 0 5px 0;
+  }
+  
+  .session-card p {
+    margin: 0;
+  }
+  
+  .quick-actions-container {
+    text-align: center;
+  }
+  
+  .actions-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .join-button, .study-tools-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #ffffff;
+    transition: background-color 0.3s;
+  }
+  
+  .join-button {
+    background-color: #009688;
+  }
+  
+  .join-button:hover {
+    background-color: #00796b;
+  }
+  
+  .study-tools-button {
+    background-color: #2196f3;
+  }
+  
+  .study-tools-button:hover {
+    background-color: #1976d2;
+  }

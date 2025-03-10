@@ -1,0 +1,334 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+/* Define custom color variables for easy theme management */
+:root {
+  --primary-color: #FF6B6B;
+  --secondary-color: #4ECDC4;
+  --accent-color: #FFE66D;
+  --bg-gradient: linear-gradient(135deg, #A8E6CF, #DCEDC1);
+  --message-bg-user: #FFD93D;
+  --message-bg-bot: #98DDCA;
+  --text-primary: #2C3E50;
+  --shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global reset and font setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fredoka', sans-serif;
+}
+
+/* Body background and base styling */
+body {
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Container for the chat interface */
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Header styles */
+.header {
+  background: #FF6B6B;
+  color: white;
+  padding: 2rem;
+  border-radius: 2rem 2rem 0 0;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated shine effect on header */
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+/* Shine animation */
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Title styles */
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Mascot emoji with bounce animation */
+.mascot {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s infinite;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Main chat container */
+.chat-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0 0 2rem 2rem;
+  box-shadow: var(--shadow);
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  align-self: center;
+}
+
+/* Chat message container with background pattern */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  scroll-behavior: smooth;
+  background:
+          radial-gradient(circle at 10% 20%, rgba(255, 107, 107, 0.05) 0%, transparent 20%),
+          radial-gradient(circle at 90% 60%, rgba(78, 205, 196, 0.05) 0%, transparent 20%),
+          radial-gradient(circle at 50% 50%, rgba(255, 230, 109, 0.05) 0%, transparent 30%);
+}
+
+/* Individual message bubble styles */
+.message {
+  max-width: 80%;
+  margin: 1rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
+  position: relative;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Pop-in animation for new messages */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* User message bubble styling */
+.user-message {
+  background-color: var(--message-bg-user);
+  margin-left: auto;
+  border-bottom-right-radius: 0.5rem;
+  transform-origin: bottom right;
+}
+
+/* Bot message bubble styling */
+.bot-message {
+  background-color: var(--message-bg-bot);
+  margin-right: auto;
+  border-bottom-left-radius: 0.5rem;
+  transform-origin: bottom left;
+}
+
+/* Input container at the bottom */
+.input-container {
+  padding: 1.5rem;
+  background-color: white;
+  border-top: 3px dashed rgba(0, 0, 0, 0.1);
+}
+
+/* Wrapper for input field and button */
+.input-wrapper {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  background: white;
+  border-radius: 3rem;
+  padding: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* User text input styling */
+#userInput {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  background: #f8f9fa;
+  transition: var(--transition);
+  outline: none;
+}
+
+/* Focus effect on input field */
+#userInput:focus {
+  background: white;
+  box-shadow: inset 0 0 0 3px var(--secondary-color);
+}
+
+/* Send button styling */
+.send-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  font-size: 1.5rem;
+}
+
+/* Hover effect on send button */
+.send-button:hover {
+  transform: scale(1.1) rotate(10deg);
+  background-color: #ff8585;
+}
+
+/* Typing indicator styling */
+.typing-indicator {
+  padding: 1rem;
+  color: var(--text-secondary);
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Dots animation for typing indicator */
+.typing-dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  animation: jumpingDots 1.4s infinite ease-in-out;
+}
+
+/* Delay for typing dots */
+.typing-dot:nth-child(1) { animation-delay: 0s; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Jumping animation for dots */
+@keyframes jumpingDots {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.2); }
+}
+
+/* Animation for floating emoji */
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+/* Styling for floating emoji effect */
+.floating-emoji {
+  position: absolute;
+  font-size: 2rem;
+  pointer-events: none;
+  animation: floatUp 2s forwards;
+}
+
+/* Scrollbar custom styling */
+.chat-messages::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Styling for scrollbar track */
+.chat-messages::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+}
+
+/* Styling for scrollbar thumb */
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    margin: 0;
+    height: 100vh;
+  }
+
+  /* Adjust header and chat container for mobile */
+  .header {
+    border-radius: 0;
+  }
+
+  .chat-container {
+    height: calc(100vh - 180px);
+    border-radius: 0;
+    max-width: 100%;
+    align-self: center;
+  }
+
+  /* Mobile-friendly message bubble */
+  .message {
+    max-width: 90%;
+  }
+
+  /* Adjust header font size on mobile */
+  .header h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Slight scale-up on message hover */
+.message:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+/* Stars effect on click */
+.star {
+  position: absolute;
+  pointer-events: none;
+  animation: starBurst 1s forwards;
+}
+
+/* Starburst animation */
+@keyframes starBurst {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(180deg);
+    opacity: 0;
+  }
+}
