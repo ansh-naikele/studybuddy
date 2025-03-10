@@ -20,7 +20,7 @@ const Register = () => {
         event.preventDefault(); // Prevent the default form submission behavior (i.e., page refresh)
 
         // Make a POST request to the registration endpoint
-        const response = await fetch('/api/register', {
+        const response = await fetch('https://studybuddy-ynzs.vercel.app/api/register', {
             method: 'POST', // HTTP method
             headers: {
                 'Content-Type': 'application/json' // Specifying the content type of the request body
