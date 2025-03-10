@@ -291,3 +291,12 @@ app.get('/api/bookings', async (req, res) => {
 app.listen(1337, () => {
     console.log('Server is running on port 1337');
 });
+
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 1337;
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+}
+
+module.exports = app; // Export the server for testing

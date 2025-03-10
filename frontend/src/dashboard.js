@@ -18,7 +18,7 @@ const Dashboard = () => {
             }
       
             try {
-              const response = await fetch('http://localhost:1337/api/bookings', {
+              const response = await fetch('/api/bookings', {
                 headers: {
                   'Content-Type': 'application/json',
                   'x-access-token': localStorage.getItem("token")

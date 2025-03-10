@@ -19,7 +19,7 @@ const Login = () => {
     event.preventDefault(); // Prevent page refresh on form submit
 
     // Send login details to the server using the Fetch API
-    const response = await fetch('http://localhost:1337/api/login', {
+    const response = await fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', // Set content type to JSON

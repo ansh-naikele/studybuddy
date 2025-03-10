@@ -26,7 +26,7 @@ const ScheduleTutor = () => {
 
   const saveAvailability = async () => {
     try {
-      const response = await fetch('http://localhost:1337/api/saveAvailability', {
+      const response = await fetch('/api/saveAvailability', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

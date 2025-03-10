@@ -20,7 +20,7 @@ const ScheduleWrapper = () => {
     useEffect(() => {
       const fetchUserType = async () => {
         try {
-          const response = await fetch('http://localhost:1337/api/userType', {
+          const response = await fetch('/api/userType', {
             method: 'GET',
             headers: {
               'x-access-token': localStorage.getItem('token'),

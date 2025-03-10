@@ -17,7 +17,7 @@ const ScheduleTutoree = () => {
 
     async function fetchTutors() {
       try {
-        const response = await fetch('http://localhost:1337/api/tutors');
+        const response = await fetch('/api/tutors');
         const data = await response.json();
         if (data.status === 'ok') {
           const tutorsWithAvailability = data.tutors.filter(tutor => 
@@ -46,7 +46,7 @@ const ScheduleTutoree = () => {
 
   const handleSaveSlots = async () => {
     try {
-        const response = await fetch('http://localhost:1337/api/schedule-session', {
+        const response = await fetch('/api/schedule-session', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
