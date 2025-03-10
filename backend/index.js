@@ -14,55 +14,6 @@ app.use(express.json()); // Parse incoming JSON requests
 // Set mongoose to use strict query
 mongoose.set('strictQuery', true);
 
-// Connect to MongoDB using the connection string from the environment variables
-mongoose.connect(process.env.MONGO_CONNECTION_STRING);
-
-// Store active users and their socket connections in a Map
-const activeUsers = new Map();
-
-// Socket.io connection event
-io.on('connection', (socket) => {
-  console.log('User connected:', socket.id); // Log the user's socket ID
-
-  // Handle user joining a room
-  socket.on('join_room', (data) => {
-    const { roomId, userId, userName } = data; // Extract roomId, userId, and userName from data
-    socket.join(roomId); // Join the specified room
-    activeUsers.set(socket.id, { userId, userName, roomId }); // Store user information in activeUsers Map
-    
-    // Notify other users in the room about the new user
-    socket.to(roomId).emit('user_joined', {
-      userId,
-      userName,
-      message: `${userName} has joined the room`
-    });
-  });
-
-  // Handle incoming chat messages
-  socket.on('send_message', (data) => {
-    const { roomId, message, userName } = data; // Extract roomId, message, and userName from data
-    io.to(roomId).emit('receive_message', {
-      message,
-      userName,
-      timestamp: new Date().toISOString() // Include timestamp with the message
-    });
-  });
-
-  // Handle disconnection event
-  socket.on('disconnect', () => {
-    const user = activeUsers.get(socket.id); // Get the user info from activeUsers Map
-    if (user) {
-      const { roomId, userName } = user;
-      // Notify others in the room that the user has left
-      socket.to(roomId).emit('user_left', {
-        userName,
-        message: `${userName} has left the room`
-      });
-      activeUsers.delete(socket.id); // Remove the user from activeUsers Map
-    }
-  });
-});
-
 // API endpoint for user registration
 app.post('/api/register', async (req, res) => {
     try {
