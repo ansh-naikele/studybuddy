@@ -10,7 +10,7 @@ const bcrypt = require('bcryptjs');
 require('dotenv').config();
 app.use(cors({
     origin: 'https://studybuddy-khaki.vercel.app',
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true
 }));
 
@@ -230,5 +230,7 @@ app.get('/api/bookings', async (req, res) => {
 
     res.json({ status: 'ok', name: user.name, bookings: user.bookings, link: user.link });
 });
+
+app.options('*', cors());
 
 module.exports = app; // Export the server for testing
