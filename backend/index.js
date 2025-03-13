@@ -8,6 +8,7 @@ const bcrypt = require('bcryptjs');
 
 // Load environment variables from .env file
 require('dotenv').config();
+
 app.use(cors({
     origin: 'https://studybuddy-khaki.vercel.app',
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -18,6 +19,8 @@ app.use(express.json());
 
 // Set mongoose to use strict query
 mongoose.set('strictQuery', true);
+
+mongoose.connect(process.env.MONGO_CONNECTION_STRING);
 
 // API endpoint for user registration
 app.post('/api/register', async (req, res) => {
